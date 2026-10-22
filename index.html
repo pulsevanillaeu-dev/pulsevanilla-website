@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090711">
+  <meta name="description" content="PulseVanilla — Crystal PvP survival. Build your legacy.">
+  <title>PulseVanilla — Crystal PvP Survival</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar wrap">
+    <a class="brand" href="#home" aria-label="PulseVanilla home">
+      <span class="brand-mark">P</span><span>PULSE<span class="brand-light">VANILLA</span></span>
+    </a>
+    <nav>
+      <a href="#features">Features</a><a href="#ranks">Ranks</a><a href="#community">Community</a>
+    </nav>
+    <a class="nav-cta" href="#play">Join server <span>↗</span></a>
+  </header>
+
+  <main id="home">
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse-dot"></span> YOUR NEXT SURVIVAL HOME</div>
+        <h1>MAKE YOUR<br> <span class="gradient-text">OWN LEGACY.</span></h1>
+        <p class="hero-desc">A survival world where every fight matters, every shard counts, and your name can become legendary.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#play">PLAY PULSEVANILLA <span>→</span></a>
+          <a class="button button-quiet" href="#features">Explore server <span>↓</span></a>
+        </div>
+        <div class="hero-meta"><span class="live-pill"><span class="pulse-dot"></span> CRYSTAL PVP SURVIVAL</span><span>Built for the bold.</span></div>
+      </div>
+      <div class="hero-art" aria-label="Decorative purple crystal artwork">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="crystal crystal-back"></div><div class="crystal crystal-front"></div>
+        <div class="art-label label-top"><span>01 / SURVIVE</span><i>✦</i></div>
+        <div class="art-label label-bottom"><span>POWER. PROGRESS. PULSE.</span><i>↗</i></div>
+      </div>
+    </section>
+
+    <section class="server-strip wrap" id="play">
+      <div><span class="strip-label">READY TO ENTER?</span><strong>YOUR ADVENTURE STARTS HERE.</strong></div>
+      <div class="server-address"><span id="server-ip">PLAY.PULSEVANILLA.NET</span><button id="copy-ip" aria-label="Copy server address">COPY IP</button></div>
+    </section>
+
+    <section class="section wrap" id="features">
+      <div class="section-heading"><div><div class="eyebrow">THE PULSE EXPERIENCE</div><h2>More than survival.</h2></div><p>Build your empire. Take the risk. Make every session count.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card feature-large"><div class="feature-icon">✦</div><span class="card-kicker">01 / COMBAT</span><h3>Crystal PvP</h3><p>Test your aim, timing, and nerve in high-stakes fights. Master the arena or take the battle into the open world.</p><div class="card-decoration crystal-small"></div></article>
+        <article class="feature-card"><div class="feature-icon">◇</div><span class="card-kicker">02 / PROGRESSION</span><h3>Earn your power</h3><p>Progress, collect Shards, and work toward powerful tools and rewards.</p></article>
+        <article class="feature-card"><div class="feature-icon">⌘</div><span class="card-kicker">03 / COMMUNITY</span><h3>Find your people</h3><p>Team up, compete, trade, and build your reputation in a growing community.</p></article>
+      </div>
+    </section>
+
+    <section class="ranks-section" id="ranks"><div class="wrap ranks-inner">
+      <div class="section-heading"><div><div class="eyebrow">MAKE YOUR MARK</div><h2>Find your rank.</h2></div><p>Show off your status and support the server. Rank details and perks will be announced soon.</p></div>
+      <div class="rank-row">
+        <div class="rank-card"><span class="rank-gem gold">✦</span><span class="rank-name gold-text">VIP</span><small>YOUR FIRST STEP UP</small></div>
+        <div class="rank-card"><span class="rank-gem blue">✦</span><span class="rank-name blue-text">MVP</span><small>STAND OUT FROM THE CROWD</small></div>
+        <div class="rank-card"><span class="rank-gem purple">✦</span><span class="rank-name purple-text">PULSE+</span><small>THE PULSE EXPERIENCE</small></div>
+      </div>
+      <p class="fine-print">Rank perks and availability are subject to change. Replace these cards with your confirmed packages before launch.</p>
+    </div></section>
+
+    <section class="community wrap" id="community">
+      <div class="community-panel"><div class="community-symbol">✳</div><div><div class="eyebrow">STAY IN THE LOOP</div><h2>The community is calling.</h2><p>Get launch news, meet other players, and keep up with everything happening on PulseVanilla.</p></div><a class="button button-primary" id="discord-link" href="https://discord.com/" target="_blank" rel="noreferrer">JOIN OUR DISCORD ↗</a></div>
+    </section>
+  </main>
+
+  <footer class="footer wrap"><a class="brand" href="#home"><span class="brand-mark">P</span><span>PULSE<span class="brand-light">VANILLA</span></span></a><span>© <span id="year"></span> PulseVanilla. All rights reserved.</span><a href="#home">BACK TO TOP ↑</a></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite">Server IP copied!</div>
+  <script src="script.js"></script>
+</body>
+</html>

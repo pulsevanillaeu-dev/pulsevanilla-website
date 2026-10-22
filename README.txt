@@ -1,42 +1,50 @@
-PULSEVANILLA WEBSITE — STARTER KIT
+PULSEVANILLA WEBSITE
+
+A static website (HTML, CSS, plain JavaScript) that works on GitHub Pages. No backend, no build step.
 
 FILES
-- index.html: website structure and text
-- style.css: colours, layout, responsive design
-- script.js: server IP, Discord link, copy button and footer year
+- config.js      ALL your settings: server address, Discord invite, store link, rules link,
+                 news. This is the only file you normally edit.
+- index.html     Page structure and texts (card titles and texts).
+- style.css      Colours, card layout, mobile/tablet layout.
+- script.js      Copy buttons, links, news, optional live Discord count.
+- assets/brand/pv-logo.png              Your PV logo (logo card + browser tab icon).
+- assets/brand/pulsevanilla-wordmark.jpg Your Pulse Vanilla logo (link previews when the site is shared).
+- assets/art/*.svg      Store and Rules backgrounds (original pixel artwork made for this
+                        site; the blurred Rules art is also the How To Join background).
+- assets/logo.svg       Older pixel crystal logo, no longer used on the page.
 
-FIRST THINGS TO EDIT
-1. Open script.js in Notepad or VS Code.
-2. Replace play.pulsevanilla.net with your real Minecraft server address.
-3. Replace https://discord.com/ with your actual Discord invite URL.
-4. In index.html, update the title, description, rank details, and any wording you want.
-5. Do not publish private keys, Discord webhook URLs, passwords, or database credentials.
+ADD YOUR REAL LINKS (config.js)
+Paste the full link between the quotes, including https://
+  discordInvite: "https://discord.gg/yourcode"
+  storeUrl:      "https://yourstore.tebex.io"
+  rulesUrl:      "https://..."
+While a value is "" the card shows "Link coming soon" instead of a broken link.
+
+NEWS (config.js)
+Add entries like: { date: "2026-11-01", title: "Season 1 launch", text: "Short text." }
+
+LIVE DATA (optional, config.js)
+- discordLiveMemberCount: true  -> shows the real member count once discordInvite is set.
+Nothing is ever made up: if the data can't be loaded, the cards fall back to normal text.
+
+REPLACE THE ARTWORK WITH YOUR OWN SCREENSHOTS
+1. Save your screenshot in assets/art/ (for example assets/art/store.jpg, ideally 1920x1080).
+2. In index.html, change the matching src="assets/art/store.svg" to src="assets/art/store.jpg".
+   Cards: Store (store.svg), How To Join (rules.svg, shown
+   blurred), Rules (rules.svg).
+Images are automatically cropped to fill the card and darkened at the bottom so text stays readable.
 
 PREVIEW ON YOUR PC
-1. Extract the ZIP.
-2. Open the pulsevanilla-website folder.
-3. Double-click index.html to preview it in your browser.
-   For best results, use VS Code with its Live Server extension, but that is optional.
+Double-click index.html, or (better) in this folder run:  python -m http.server 8765
+and open http://127.0.0.1:8765
 
-PUBLISH FREE WITH GITHUB PAGES
-1. Create a public GitHub repository named pulsevanilla-website.
-2. Upload index.html, style.css, script.js, and README.txt to the repository root.
-3. Open repository Settings > Pages.
-4. Under Build and deployment, select Deploy from a branch.
-5. Choose branch main and folder /(root), then Save.
-6. Wait for GitHub Pages to publish the site.
-
-CONNECT YOUR DOMAIN
-1. In repository Settings > Pages, enter your domain in Custom domain and save.
-2. At your domain provider, configure DNS using the exact records shown/recommended in GitHub's official Pages documentation.
-3. For a www subdomain, GitHub Pages normally uses a CNAME pointing to YOUR-USERNAME.github.io (replace with your GitHub username).
-4. For the root/apex domain, use the A records GitHub documents. Do not delete unrelated email or verification DNS records.
-5. Once DNS has propagated and the certificate is ready, enable Enforce HTTPS.
-
-Official guide:
-https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site
+PUBLISH / UPDATE ON GITHUB PAGES
+Upload all files AND the assets folder to the root of your website repository, replacing the old
+index.html, style.css, script.js and README.txt. If your repository has a CNAME file (your custom domain),
+leave it exactly as it is: nothing here changes your domain or DNS.
 
 NOTES
-- This is a static website starter. It does not include player accounts, a backend, live player count, or payment processing.
-- Do not promise rank perks until you have confirmed them.
-- The server IP and Discord invite above are placeholders; replace them before launch.
+- Do not put private keys, Discord webhook URLs, passwords or database credentials in these files:
+  everything here is public.
+- The previous design is saved in ..\backup-old-design-2026-10-22\

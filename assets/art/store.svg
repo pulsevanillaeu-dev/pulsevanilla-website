@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 108" width="1920" height="1080" preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges">
+  <!-- Original PulseVanilla artwork: end crystals on obsidian under a purple night sky -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#06030d"/>
+      <stop offset=".55" stop-color="#1c0d36"/>
+      <stop offset="1" stop-color="#3d176b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="132" cy="32" r="78" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e58bff" stop-opacity=".65"/>
+      <stop offset=".35" stop-color="#9b4dff" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#9b4dff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blast" cx="62" cy="76" r="26" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff2c4" stop-opacity=".9"/>
+      <stop offset=".3" stop-color="#ff9a3d" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#ff5a1f" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="obs" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#120a1f"/>
+      <rect x="1" y="1" width="3" height="1" fill="#2a1747"/>
+      <rect x="5" y="2" width="2" height="2" fill="#1d1033"/>
+      <rect x="2" y="4" width="1" height="2" fill="#3e2168"/>
+      <rect x="4" y="5" width="2" height="1" fill="#271543"/>
+      <rect x="0" y="7" width="8" height="1" fill="#0a0612"/>
+      <rect x="7" y="0" width="1" height="8" fill="#0a0612"/>
+    </pattern>
+    <pattern id="bed" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="4" fill="#3b3a44"/>
+      <rect width="2" height="1" fill="#55545f"/>
+      <rect x="2" y="2" width="1" height="2" fill="#24232b"/>
+    </pattern>
+  </defs>
+  <rect width="192" height="108" fill="url(#sky)"/>
+  <g fill="#fff">
+    <rect x="12" y="8" width="1" height="1" opacity=".8"/><rect x="34" y="20" width="1" height="1" opacity=".5"/>
+    <rect x="58" y="6" width="1" height="1" opacity=".7"/><rect x="80" y="16" width="1" height="1" opacity=".4"/>
+    <rect x="96" y="5" width="1" height="1" opacity=".9"/><rect x="160" y="10" width="1" height="1" opacity=".6"/>
+    <rect x="176" y="24" width="1" height="1" opacity=".5"/><rect x="186" y="6" width="1" height="1" opacity=".8"/>
+    <rect x="22" y="34" width="1" height="1" opacity=".4"/><rect x="104" y="28" width="1" height="1" opacity=".5"/>
+    <rect x="70" y="30" width="1" height="1" opacity=".3"/><rect x="150" y="30" width="1" height="1" opacity=".4"/>
+  </g>
+  <!-- distant islands -->
+  <g fill="#1a0c30">
+    <rect x="0" y="72" width="22" height="12"/><rect x="6" y="66" width="10" height="6"/>
+    <rect x="150" y="70" width="42" height="14"/><rect x="160" y="62" width="14" height="8"/><rect x="178" y="66" width="8" height="4"/>
+    <rect x="86" y="74" width="20" height="10"/>
+  </g>
+  <rect width="192" height="108" fill="url(#glow)"/>
+  <!-- obsidian floor -->
+  <rect y="84" width="192" height="24" fill="url(#obs)"/>
+  <rect y="84" width="192" height="1" fill="#4a2a7a" opacity=".7"/>
+  <!-- pillars -->
+  <rect x="120" y="44" width="16" height="40" fill="url(#obs)"/>
+  <rect x="120" y="44" width="16" height="1" fill="#5b3496"/>
+  <rect x="24" y="60" width="16" height="24" fill="url(#obs)" opacity=".9"/>
+  <rect x="24" y="60" width="16" height="1" fill="#5b3496" opacity=".7"/>
+  <!-- big crystal -->
+  <rect x="122" y="40" width="12" height="4" fill="url(#bed)"/>
+  <g fill="#f3dcff" opacity=".7">
+    <rect x="119" y="20" width="18" height="1"/><rect x="119" y="37" width="18" height="1"/>
+    <rect x="119" y="20" width="1" height="18"/><rect x="136" y="20" width="1" height="18"/>
+  </g>
+  <g fill="#d9a6ff" opacity=".8">
+    <rect x="128" y="22" width="1" height="1"/><rect x="127" y="23" width="3" height="1"/>
+    <rect x="125" y="25" width="7" height="1"/><rect x="122" y="28" width="13" height="1"/>
+    <rect x="125" y="32" width="7" height="1"/><rect x="127" y="34" width="3" height="1"/>
+    <rect x="128" y="35" width="1" height="1"/>
+  </g>
+  <rect x="125" y="26" width="7" height="6" fill="#ff4fd0"/>
+  <rect x="126" y="27" width="5" height="4" fill="#ff7be0"/>
+  <rect x="126" y="27" width="2" height="1" fill="#ffe0f8"/>
+  <!-- small crystal exploding -->
+  <rect width="192" height="108" fill="url(#blast)"/>
+  <g fill="#f3dcff" opacity=".6">
+    <rect x="57" y="71" width="10" height="1"/><rect x="57" y="80" width="10" height="1"/>
+    <rect x="57" y="71" width="1" height="10"/><rect x="66" y="71" width="1" height="10"/>
+  </g>
+  <rect x="60" y="74" width="4" height="4" fill="#ff4fd0"/>
+  <rect x="60" y="74" width="2" height="1" fill="#ffe0f8"/>
+  <g fill="#ffd27a">
+    <rect x="52" y="66" width="2" height="2"/><rect x="70" y="64" width="1" height="1"/><rect x="74" y="72" width="2" height="2"/>
+    <rect x="48" y="76" width="1" height="1"/><rect x="68" y="82" width="1" height="1"/><rect x="56" y="60" width="1" height="1"/>
+  </g>
+  <g fill="#ffffff">
+    <rect x="62" y="68" width="1" height="1"/><rect x="72" y="68" width="1" height="1"/><rect x="50" y="72" width="1" height="1"/>
+  </g>
+  <!-- particles -->
+  <g fill="#c78bff">
+    <rect x="112" y="18" width="1" height="1"/><rect x="142" y="14" width="1" height="1"/><rect x="146" y="40" width="1" height="1"/>
+    <rect x="108" y="36" width="1" height="1"/><rect x="138" y="8" width="1" height="1"/><rect x="152" y="24" width="1" height="1"/>
+    <rect x="32" y="52" width="1" height="1"/><rect x="40" y="46" width="1" height="1"/>
+  </g>
+</svg>

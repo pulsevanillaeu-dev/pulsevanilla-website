@@ -3,77 +3,106 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090711">
-  <meta name="description" content="PulseVanilla — Crystal PvP survival. Build your legacy.">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="PulseVanilla: a Crystal PvP survival server with an economy, teams, an auction house and a resetting PvP arena. Join at pulsevanilla.eu.">
+  <meta property="og:title" content="PulseVanilla — Crystal PvP Survival">
+  <meta property="og:description" content="Crystal PvP survival. Join at pulsevanilla.eu.">
+  <meta property="og:image" content="assets/brand/pulsevanilla-wordmark.jpg">
   <title>PulseVanilla — Crystal PvP Survival</title>
+  <link rel="icon" href="assets/brand/pv-logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
-  <header class="topbar wrap">
-    <a class="brand" href="#home" aria-label="PulseVanilla home">
-      <span class="brand-mark">P</span><span>PULSE<span class="brand-light">VANILLA</span></span>
-    </a>
-    <nav>
-      <a href="#features">Features</a><a href="#ranks">Ranks</a><a href="#community">Community</a>
-    </nav>
-    <a class="nav-cta" href="#play">Join server <span>↗</span></a>
-  </header>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <main id="home">
-    <section class="hero wrap">
-      <div class="hero-copy">
-        <div class="eyebrow"><span class="pulse-dot"></span> YOUR NEXT SURVIVAL HOME</div>
-        <h1>MAKE YOUR<br> <span class="gradient-text">OWN LEGACY.</span></h1>
-        <p class="hero-desc">A survival world where every fight matters, every shard counts, and your name can become legendary.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#play">PLAY PULSEVANILLA <span>→</span></a>
-          <a class="button button-quiet" href="#features">Explore server <span>↓</span></a>
+  <main id="main" class="container">
+    <h1 class="sr-only" id="top">PulseVanilla — Crystal PvP survival server</h1>
+
+    <!-- ===== Row 1: logo + IP, store, Discord ===== -->
+    <div class="row row--top">
+
+      <!-- A. Logo + server IP -->
+      <div class="brand-col">
+        <div class="card card--logo">
+          <img src="assets/brand/pv-logo.png" alt="PulseVanilla logo" width="256" height="256">
         </div>
-        <div class="hero-meta"><span class="live-pill"><span class="pulse-dot"></span> CRYSTAL PVP SURVIVAL</span><span>Built for the bold.</span></div>
+        <button class="ip-pill" type="button" data-copy-ip aria-label="Copy server address pulsevanilla.eu">
+          <svg class="ip-pill__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect x="8" y="3" width="13" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="2.4"/>
+            <path d="M5 7v12a2 2 0 0 0 2 2h10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          <span class="ip-pill__text" data-ip-upper>PULSEVANILLA.EU</span>
+        </button>
       </div>
-      <div class="hero-art" aria-label="Decorative purple crystal artwork">
-        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
-        <div class="crystal crystal-back"></div><div class="crystal crystal-front"></div>
-        <div class="art-label label-top"><span>01 / SURVIVE</span><i>✦</i></div>
-        <div class="art-label label-bottom"><span>POWER. PROGRESS. PULSE.</span><i>↗</i></div>
-      </div>
-    </section>
 
-    <section class="server-strip wrap" id="play">
-      <div><span class="strip-label">READY TO ENTER?</span><strong>YOUR ADVENTURE STARTS HERE.</strong></div>
-      <div class="server-address"><span id="server-ip">PLAY.PULSEVANILLA.NET</span><button id="copy-ip" aria-label="Copy server address">COPY IP</button></div>
-    </section>
+      <!-- B. Store -->
+      <a class="card card--art card--store" data-link="storeUrl" data-label="Open the PulseVanilla store">
+        <img class="card__bg" src="assets/art/store.svg" alt="" width="1920" height="1080">
+        <h2 class="card__title">Store</h2>
+        <span class="card__corner" data-cta>Ranks &amp; upgrades <span aria-hidden="true">→</span></span>
+      </a>
 
-    <section class="section wrap" id="features">
-      <div class="section-heading"><div><div class="eyebrow">THE PULSE EXPERIENCE</div><h2>More than survival.</h2></div><p>Build your empire. Take the risk. Make every session count.</p></div>
-      <div class="feature-grid">
-        <article class="feature-card feature-large"><div class="feature-icon">✦</div><span class="card-kicker">01 / COMBAT</span><h3>Crystal PvP</h3><p>Test your aim, timing, and nerve in high-stakes fights. Master the arena or take the battle into the open world.</p><div class="card-decoration crystal-small"></div></article>
-        <article class="feature-card"><div class="feature-icon">◇</div><span class="card-kicker">02 / PROGRESSION</span><h3>Earn your power</h3><p>Progress, collect Shards, and work toward powerful tools and rewards.</p></article>
-        <article class="feature-card"><div class="feature-icon">⌘</div><span class="card-kicker">03 / COMMUNITY</span><h3>Find your people</h3><p>Team up, compete, trade, and build your reputation in a growing community.</p></article>
-      </div>
-    </section>
+      <!-- C. Discord -->
+      <a class="card card--discord" data-link="discordInvite" data-label="Join the PulseVanilla Discord">
+        <span class="tooltip" aria-hidden="true">Join the Discord</span>
+        <svg class="discord-icon" viewBox="0 0 127.14 96.36" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"/>
+        </svg>
+        <strong class="discord-big" data-discord-number>Discord</strong>
+        <span class="discord-sub"><i aria-hidden="true"></i><span data-discord-label>Join our community</span></span>
+      </a>
+    </div>
 
-    <section class="ranks-section" id="ranks"><div class="wrap ranks-inner">
-      <div class="section-heading"><div><div class="eyebrow">MAKE YOUR MARK</div><h2>Find your rank.</h2></div><p>Show off your status and support the server. Rank details and perks will be announced soon.</p></div>
-      <div class="rank-row">
-        <div class="rank-card"><span class="rank-gem gold">✦</span><span class="rank-name gold-text">VIP</span><small>YOUR FIRST STEP UP</small></div>
-        <div class="rank-card"><span class="rank-gem blue">✦</span><span class="rank-name blue-text">MVP</span><small>STAND OUT FROM THE CROWD</small></div>
-        <div class="rank-card"><span class="rank-gem purple">✦</span><span class="rank-name purple-text">PULSE+</span><small>THE PULSE EXPERIENCE</small></div>
-      </div>
-      <p class="fine-print">Rank perks and availability are subject to change. Replace these cards with your confirmed packages before launch.</p>
-    </div></section>
+    <!-- ===== Row 2: how to join ===== -->
+    <div class="row row--bottom">
 
-    <section class="community wrap" id="community">
-      <div class="community-panel"><div class="community-symbol">✳</div><div><div class="eyebrow">STAY IN THE LOOP</div><h2>The community is calling.</h2><p>Get launch news, meet other players, and keep up with everything happening on PulseVanilla.</p></div><a class="button button-primary" id="discord-link" href="https://discord.com/" target="_blank" rel="noreferrer">JOIN OUR DISCORD ↗</a></div>
-    </section>
+      <!-- E. How to join -->
+      <section class="card card--join" aria-labelledby="join-title">
+        <img class="card__bg card__bg--blur" src="assets/art/rules.svg" alt="" width="1920" height="1080">
+        <h2 class="card__title" id="join-title">How To Join</h2>
+        <div class="mc-form">
+          <span class="mc-label" id="mc-name-label">Server Name</span>
+          <div class="mc-input" aria-labelledby="mc-name-label">PulseVanilla</div>
+          <span class="mc-label" id="mc-address-label">Server Address</span>
+          <button class="mc-input mc-input--button" type="button" data-copy-ip title="Click to copy" aria-label="Copy server address pulsevanilla.eu">
+            <span data-typing>pulsevanilla.eu</span><span class="mc-cursor" aria-hidden="true">_</span>
+          </button>
+        </div>
+        <p class="join-hint">Java Edition: <strong>Multiplayer</strong> → <strong>Add Server</strong> → paste the address → <strong>Join Server</strong></p>
+      </section>
+    </div>
+
+    <!-- ===== Row 3: rules, news ===== -->
+    <div class="row row--lower">
+      <a class="card card--art card--rules" data-link="rulesUrl" data-label="Read the PulseVanilla server rules">
+        <img class="card__bg" src="assets/art/rules.svg" alt="" width="1920" height="1080" loading="lazy">
+        <h2 class="card__title">Rules</h2>
+        <span class="card__corner" data-cta>Read before you play <span aria-hidden="true">→</span></span>
+      </a>
+
+      <section class="card card--news" id="news" aria-labelledby="news-title">
+        <h2 class="card__title" id="news-title">News</h2>
+        <ul class="news" data-news></ul>
+      </section>
+    </div>
   </main>
 
-  <footer class="footer wrap"><a class="brand" href="#home"><span class="brand-mark">P</span><span>PULSE<span class="brand-light">VANILLA</span></span></a><span>© <span id="year"></span> PulseVanilla. All rights reserved.</span><a href="#home">BACK TO TOP ↑</a></footer>
-  <div class="toast" id="toast" role="status" aria-live="polite">Server IP copied!</div>
+  <footer class="container footer">
+    <nav class="footer__links" aria-label="Footer">
+      <a data-link="storeUrl" data-label="Store">Store</a>
+      <a data-link="discordInvite" data-label="Discord">Discord</a>
+      <a data-link="rulesUrl" data-label="Rules">Rules</a>
+      <a href="#top">Back to top ↑</a>
+    </nav>
+    <p>© <span data-year></span> PulseVanilla. Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</p>
+  </footer>
+
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

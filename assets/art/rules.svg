@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 108" width="1920" height="1080" preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges">
+  <!-- Original PulseVanilla artwork: purple banners on a stone brick wall -->
+  <defs>
+    <pattern id="bricks" width="16" height="8" patternUnits="userSpaceOnUse">
+      <rect width="16" height="8" fill="#3c3946"/>
+      <rect y="3" width="16" height="1" fill="#24222b"/>
+      <rect y="7" width="16" height="1" fill="#24222b"/>
+      <rect x="7" y="0" width="1" height="3" fill="#24222b"/>
+      <rect x="15" y="4" width="1" height="3" fill="#24222b"/>
+      <rect x="1" y="0" width="5" height="1" fill="#4a4757"/>
+      <rect x="9" y="4" width="5" height="1" fill="#4a4757"/>
+      <rect x="3" y="5" width="2" height="1" fill="#2f2d38"/>
+    </pattern>
+    <radialGradient id="torchL" cx="44" cy="40" r="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffb35c" stop-opacity=".5"/><stop offset="1" stop-color="#ffb35c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="torchR" cx="148" cy="40" r="34" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffb35c" stop-opacity=".5"/><stop offset="1" stop-color="#ffb35c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="192" height="108" fill="url(#bricks)"/>
+  <rect width="192" height="108" fill="#0b0814" opacity=".35"/>
+  <rect width="192" height="108" fill="url(#torchL)"/>
+  <rect width="192" height="108" fill="url(#torchR)"/>
+  <!-- banners -->
+  <g>
+    <rect x="70" y="12" width="20" height="2" fill="#5a3a22"/>
+    <rect x="72" y="14" width="16" height="50" fill="#6d28d9"/>
+    <rect x="72" y="14" width="16" height="4" fill="#4c1d95"/>
+    <rect x="72" y="64" width="6" height="4" fill="#6d28d9"/><rect x="82" y="64" width="6" height="4" fill="#6d28d9"/>
+    <rect x="79" y="26" width="2" height="2" fill="#e9d5ff"/><rect x="77" y="28" width="6" height="2" fill="#c4b5fd"/>
+    <rect x="76" y="30" width="8" height="8" fill="#a78bfa"/><rect x="77" y="38" width="6" height="2" fill="#8b5cf6"/><rect x="79" y="40" width="2" height="2" fill="#7c3aed"/>
+    <rect x="72" y="50" width="16" height="2" fill="#a78bfa"/>
+  </g>
+  <g>
+    <rect x="102" y="12" width="20" height="2" fill="#5a3a22"/>
+    <rect x="104" y="14" width="16" height="50" fill="#6d28d9"/>
+    <rect x="104" y="14" width="16" height="4" fill="#4c1d95"/>
+    <rect x="104" y="64" width="6" height="4" fill="#6d28d9"/><rect x="114" y="64" width="6" height="4" fill="#6d28d9"/>
+    <rect x="108" y="26" width="8" height="2" fill="#e9d5ff"/><rect x="108" y="30" width="8" height="2" fill="#e9d5ff"/>
+    <rect x="108" y="34" width="8" height="2" fill="#e9d5ff"/><rect x="108" y="38" width="5" height="2" fill="#e9d5ff"/>
+    <rect x="104" y="50" width="16" height="2" fill="#a78bfa"/>
+  </g>
+  <!-- torches -->
+  <rect x="43" y="40" width="2" height="8" fill="#6b4a2a"/><rect x="42" y="37" width="4" height="3" fill="#ffcf6b"/><rect x="43" y="36" width="2" height="1" fill="#fff3c4"/>
+  <rect x="147" y="40" width="2" height="8" fill="#6b4a2a"/><rect x="146" y="37" width="4" height="3" fill="#ffcf6b"/><rect x="147" y="36" width="2" height="1" fill="#fff3c4"/>
+  <!-- floor -->
+  <rect y="92" width="192" height="16" fill="#1c1a22"/>
+  <rect y="92" width="192" height="1" fill="#4a4757"/>
+</svg>

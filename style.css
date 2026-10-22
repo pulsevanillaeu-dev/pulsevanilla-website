@@ -1,0 +1,342 @@
+/* ==========================================================================
+   PulseVanilla — card-grid website
+   1. Tokens   2. Base   3. Rows   4. Cards   5. Card types
+   6. News   7. Buttons, toast, footer   8. Responsive
+   ========================================================================== */
+
+/* 1. Tokens ---------------------------------------------------------------- */
+:root {
+  --bg: #111111;
+  --card: #1c1c1e;
+  --card-2: #222225;
+  --line: rgba(255, 255, 255, .06);
+  --text: #ffffff;
+  --muted: #a8a6b0;
+  --faint: #6f6d78;
+  --purple: #8b3dff;
+  --amethyst: #c084fc;
+  --purple-deep: #5b1fc4;
+  --lime: #3ddc55;
+  --red: #ff2e2e;
+  --discord: #5865f2;
+  --radius: 24px;
+  --gap: 24px;
+  --max: 1090px;
+  --row-h: 300px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  color-scheme: dark;
+}
+
+/* 2. Base ------------------------------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Manrope, system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p { margin: 0; }
+code {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: .92em;
+  color: var(--amethyst);
+}
+.container { width: min(var(--max), 100% - 32px); margin-inline: auto; }
+main.container { padding-top: 110px; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: 16px; top: -60px; z-index: 50;
+  padding: 10px 16px; border-radius: 10px;
+  background: var(--purple); color: #fff; font-weight: 700;
+}
+.skip-link:focus { top: 16px; }
+:focus-visible { outline: 3px solid var(--amethyst); outline-offset: 4px; }
+
+/* 3. Rows ------------------------------------------------------------------ */
+.row { display: grid; gap: var(--gap); }
+.row--top { grid-template-columns: 290fr 533fr 220fr; }
+.row--top > * { height: var(--row-h); }
+.row--bottom { margin-top: var(--gap); grid-template-columns: 1fr; }
+.row--bottom > * { height: var(--row-h); }
+.row--lower { margin-top: var(--gap); grid-template-columns: 1fr 2fr; }
+
+/* 4. Cards ----------------------------------------------------------------- */
+.card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: block;
+  border-radius: var(--radius);
+  background: var(--card);
+  transition: transform .35s var(--ease), box-shadow .35s;
+}
+a.card[href]:hover, a.card[href]:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px -18px rgba(139, 61, 255, .65);
+}
+
+/* Artwork fills the card; a soft shade keeps the title readable */
+.card__bg {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .6s var(--ease);
+}
+.card--art::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, .35) 0%, transparent 30%),
+    linear-gradient(0deg, rgba(0, 0, 0, .55) 0%, transparent 40%);
+}
+a.card[href]:hover .card__bg, a.card[href]:focus-visible .card__bg { transform: scale(1.05); }
+
+.card__title {
+  position: absolute; top: 18px; left: 18px; right: 18px;
+  font-size: 30px; font-weight: 800; letter-spacing: -.01em; line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .55);
+}
+.card__corner {
+  position: absolute; left: 18px; bottom: 16px;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 700;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, .6);
+  opacity: .9;
+  transition: gap .25s var(--ease), opacity .25s;
+}
+a.card[href]:hover .card__corner { gap: 12px; opacity: 1; }
+.card__foot {
+  position: absolute; left: 18px; right: 18px; bottom: 16px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
+}
+.card__foot-text {
+  font-size: 14px; font-weight: 600; color: #e9e6f2;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, .7);
+}
+
+/* Placeholder state: shown when a link is not configured yet in config.js */
+.is-pending { cursor: default; }
+.badge {
+  position: absolute; left: 18px; bottom: 16px;
+  padding: 5px 11px; border-radius: 999px;
+  font-size: 12px; font-weight: 700;
+  color: #ddd; background: rgba(0, 0, 0, .55); border: 1px solid rgba(255, 255, 255, .12);
+}
+
+/* 5. Card types ------------------------------------------------------------ */
+/* A. Logo + IP */
+.brand-col { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.card--logo {
+  flex: 1;
+  display: grid; place-items: center;
+  background:
+    radial-gradient(circle at 50% 45%, #b06bff 0%, rgba(176, 107, 255, 0) 60%),
+    linear-gradient(160deg, var(--purple) 0%, var(--purple-deep) 100%);
+}
+.card--logo img {
+  height: 78%; width: auto;
+  filter: drop-shadow(0 10px 18px rgba(30, 0, 70, .55));
+  transition: transform .5s var(--ease);
+}
+.card--logo:hover img, .card--logo:focus-visible img { transform: scale(1.06) rotate(-3deg); }
+.card--logo:focus-visible { outline-offset: 4px; }
+
+.ip-pill {
+  height: 58px; flex: none;
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  padding: 0 20px;
+  border: 0; border-radius: 999px;
+  background: var(--card);
+  color: var(--text);
+  font: 800 20px/1 Manrope, system-ui, sans-serif;
+  letter-spacing: .01em;
+  cursor: pointer;
+  transition: background .25s, transform .25s var(--ease);
+}
+.ip-pill:hover { background: #2a2a2e; transform: translateY(-2px); }
+.ip-pill:active { transform: translateY(0) scale(.98); }
+.ip-pill__icon { width: 26px; height: 26px; flex: none; }
+.ip-pill__text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* C. Discord */
+.card--discord {
+  overflow: visible;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 18px;
+}
+.discord-icon {
+  width: 62px; height: auto; color: var(--discord);
+  transition: transform .35s var(--ease);
+}
+a.card--discord[href]:hover .discord-icon { transform: scale(1.1) rotate(-6deg); }
+.discord-big {
+  margin-top: 14px;
+  font-size: 34px; font-weight: 800; letter-spacing: -.01em; line-height: 1;
+  overflow-wrap: anywhere;
+}
+.discord-sub {
+  margin-top: 8px;
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 14px; font-weight: 600; color: #e6e6ea;
+}
+.discord-sub i {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--lime); box-shadow: 0 0 8px var(--lime);
+}
+.card--discord .badge { left: 50%; transform: translateX(-50%); white-space: nowrap; }
+.tooltip {
+  position: absolute; top: -56px; right: -10px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: #fff; color: #111;
+  font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+  opacity: 0; transform: translateY(6px); pointer-events: none;
+  transition: opacity .2s, transform .25s var(--ease);
+}
+.tooltip::after {
+  content: ""; position: absolute; right: 20px; bottom: -6px;
+  width: 12px; height: 12px; background: #fff; transform: rotate(45deg);
+}
+a.card--discord[href]:hover .tooltip, a.card--discord[href]:focus-visible .tooltip { opacity: 1; transform: translateY(0); }
+
+
+/* E. How to join — styled after a game's "edit server" screen */
+.card__bg--blur { filter: blur(4px) brightness(.75) saturate(1.2); transform: scale(1.08); }
+.card--join::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgba(0, 0, 0, .45), rgba(0, 0, 0, .1));
+}
+.mc-form {
+  position: absolute; left: 24%; right: -4px; top: 66px;
+  display: flex; flex-direction: column;
+  font-family: VT323, ui-monospace, monospace;
+}
+.mc-label {
+  font-size: 28px; line-height: 1; color: #b5b3bd;
+  text-shadow: 2px 2px 0 #3a3940;
+  margin: 0 0 4px 2px;
+}
+.mc-input {
+  height: 46px;
+  display: flex; align-items: center;
+  padding: 0 10px;
+  margin-bottom: 14px;
+  border: 2px solid #a0a0a0;
+  background: #000;
+  color: #fff;
+  font: 28px/1 VT323, ui-monospace, monospace;
+  text-align: left;
+  white-space: nowrap; overflow: hidden;
+}
+.mc-input--button { width: 100%; cursor: pointer; transition: border-color .2s; }
+.mc-input--button:hover, .mc-input--button:focus-visible { border-color: #fff; }
+.mc-input--button:focus-visible { outline-offset: 2px; }
+.mc-cursor { animation: blink 1s steps(1) infinite; }
+.join-hint {
+  position: absolute; left: 18px; right: 18px; bottom: 14px;
+  font-size: 13px; color: #d6d4dd;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .8);
+}
+.join-hint strong { color: #fff; }
+
+/* Lower row */
+.card--rules { min-height: 260px; }
+.card--news { padding: 70px 18px 18px; min-height: 260px; }
+
+/* 6. News --------------------------------------------------------------- */
+#news { scroll-margin-top: 24px; }
+
+.news { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.news li {
+  display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; align-items: baseline;
+  padding: 14px 16px; border-radius: 14px;
+  background: rgba(255, 255, 255, .04);
+}
+.news time { font-size: 13px; font-weight: 700; color: var(--amethyst); white-space: nowrap; }
+.news strong { font-size: 16px; }
+.news p { grid-column: 2; color: var(--muted); font-size: 14.5px; }
+.news .news__empty { display: block; color: var(--muted); }
+
+/* 7. Buttons, toast, footer ------------------------------------------------ */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 16px;
+  border: 0; border-radius: 999px;
+  font: 700 14px/1 Manrope, system-ui, sans-serif;
+  cursor: pointer;
+  transition: transform .25s var(--ease), box-shadow .25s;
+}
+.btn--primary { background: linear-gradient(135deg, #a855f7, var(--purple-deep)); color: #fff; }
+.btn--primary[href]:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -8px rgba(168, 85, 247, .8); }
+.btn.is-pending { background: rgba(0, 0, 0, .55); color: #ddd; }
+
+.toast {
+  position: fixed; left: 50%; bottom: 24px; z-index: 60;
+  transform: translate(-50%, 16px);
+  max-width: calc(100% - 32px);
+  padding: 12px 18px;
+  display: flex; align-items: center; gap: 10px;
+  border-radius: 999px;
+  background: #fff; color: #111;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .5);
+  font-size: 14px; font-weight: 800;
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s, transform .25s var(--ease);
+}
+.toast::before { content: "✓"; color: #1fa83a; font-weight: 800; }
+.toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+.footer {
+  margin-top: 64px; padding: 26px 0 34px;
+  border-top: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;
+  color: var(--faint); font-size: 13px;
+}
+.footer__links { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.footer__links a { color: var(--muted); font-weight: 600; transition: color .2s; }
+.footer__links a[href]:hover { color: var(--text); }
+.footer__links a.is-pending { opacity: .5; }
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* 8. Responsive ------------------------------------------------------------ */
+@media (max-width: 960px) {
+  :root { --gap: 18px; }
+  main.container { padding-top: 64px; }
+  .row--top { grid-template-columns: 1fr 1fr; }
+  .card--store { grid-column: 1 / -1; grid-row: 2; }
+  .row--bottom { grid-template-columns: 1fr; }
+  .mc-form { left: 18px; }
+}
+
+@media (max-width: 600px) {
+  :root { --radius: 20px; --gap: 14px; --row-h: 240px; }
+  main.container { padding-top: 32px; }
+  .row--top, .row--lower { grid-template-columns: minmax(0, 1fr); }
+  .card--store { grid-row: auto; }
+  .brand-col { height: auto; }
+  .card--logo { flex: none; height: 220px; }
+  .card--discord { height: 220px; }
+  .tooltip { display: none; }
+  .card--join { height: 330px; }
+  .mc-label, .mc-input { font-size: 26px; }
+  .mc-input { height: 44px; margin-bottom: 14px; }
+  .card__title { font-size: 26px; }
+  .news li { grid-template-columns: 1fr; }
+  .news p { grid-column: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

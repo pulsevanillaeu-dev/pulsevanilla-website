@@ -11,7 +11,7 @@ window.PULSE_CONFIG = {
   // PLACEHOLDER — your permanent Discord invite, e.g. "https://discord.gg/abc123".
   // (The plugin's /discord command currently says discord.gg/pulsevanilla — paste it here
   // only once you have confirmed that invite really works.)
-  discordInvite: "",
+  discordInvite: "https://discord.gg/pulsevanilla",
 
   // true = show the real member count from Discord's public invite API (needs discordInvite).
   // If Discord does not answer, the card simply says "Join our community".
@@ -27,5 +27,5 @@ window.PULSE_CONFIG = {
 
   // Announcements and events, newest first. Example:
   // { date: "2026-11-01", title: "Season 1 launch", text: "The arena opens at 18:00 CET." },
-  news: []
+  news: [SEASON 1]
 };
